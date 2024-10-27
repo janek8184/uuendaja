@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: '0 * * * *'  # Käivitub iga tunni alguses
+  workflow_dispatch:  # Lisatud käsitsi käivitamise võimalus
 
 jobs:
   run-script:
@@ -13,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Uuendatud versioon
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3  # Uuendatud versioon
       with:
         python-version: '3.x'
 
