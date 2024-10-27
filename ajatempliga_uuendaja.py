@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 # Facebook Graph API seaded
-access_token = 'EAAB0uDibqFABOxhMiPE9vh1vdQDOVcUni3KrZAZBZAoNk6ezhu2x1jJ2ymmTIYBaV8KvlOPRbtJyhCp6ZC5IFKweT2oM7PgSZAUkdJKYH4oFZBFBomaRNFJN3JaOCdA0zHBhWEJ6QrTt5rbOVGwdgtZBa0iSyjyYmZBTCKSpi9YcDmT1R4Lw6ZAImHIRQtNqaP0qmZBLdiXSStKIqPhtqaBjy0PqqoEpwRfCFD4ScRRROafAZDZD'  # Asenda oma kehtiva juurdepääsutunnusega
+access_token = 'EAAB0uDibqFABO9fgHhXRs2PkwSXrdfirAa9T72zFsjQ9DxPYZBo3RmBZCZCUekbhc6KbieEZCxOUNMbYLtmXhTtkGR9neiVZAsz1CkZCmOIeZCeZAE9Wtf3JRswBXYiY2eb4LIOoPZAcbaYrdSQgOswA4V6TMllbRcZBu9sBUumwEuG9b3BRX3Jio2ryKeZBzCY28bjS7R2DBDkA8EhESpQTMb2AkmHeiR3xkQfaTWfmv0B'  # Asenda oma kehtiva juurdepääsutunnusega
 album_id = '576206708407530'
 page_id = '463324893829156'  # Asenda oma lehe ID-ga
 
@@ -152,7 +152,7 @@ def get_album_comments():
                 # Vasta ainult kehtivatele pakkumistele, mis on tehtud pärast lõppaega
                 for comment in comments:
                     comment_time = datetime.strptime(comment['created_time'], '%Y-%m-%dT%H:%M:%S%z').astimezone(timezone.utc).replace(tzinfo=None)
-                    comment_time += timedelta(hours=3)  # Lisa ajavööndi korrigeerimine
+                    comment_time += timedelta(hours=2)  # Lisa ajavööndi korrigeerimine
                     print(f"Kommentaari aeg: {comment_time}, Oksjoni lõppaeg: {end_times[photo_id]}")
                     if is_valid_bid_message(comment['message']):
                         print(f"Kehtiv pakkumine: {comment['message']}")
@@ -225,7 +225,7 @@ def process_comment(comment, photo_id, highest_bid, highest_bid_updated, comment
         return highest_bid_updated
 
     current_time = datetime.strptime(created_time, '%Y-%m-%dT%H:%M:%S%z').astimezone(timezone.utc).replace(tzinfo=None)
-    current_time += timedelta(hours=3)
+    current_time += timedelta(hours=2)
 
     # Kontrollime, kas oksjon on lõppenud
     if current_time > end_times[photo_id]:
