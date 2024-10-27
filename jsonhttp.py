@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 # URL, kust lugeda kommentaare
-json_url = 'your_json_url_here'  # Asenda see oma tegeliku URL-iga
+json_url = 'https://raw.githubusercontent.com/janek8184/uuendaja/refs/heads/main/jsonhttp.py'  # Asenda see oma tegeliku URL-iga
 
 # Funktsioon sõnade teisendamiseks numbriteks
 def words_to_numbers(word):
